@@ -1,0 +1,13 @@
+https://gitlab.com/jittat/ku01-tasks/-/blob/main/tasks/2565/ku01-65-01-distinct.pdf
+
+Problem Type => Brute Force
+
+Time Complexity : O(n^2logn)
+
+set<int> s;                     -> to store every unique answer
+Loop i => 1 -> n :
+    sum = 0;
+    Loop j => i -> n :
+        sum += a[j];            -> make every a[a] + a[a+1] + ... + a[b-1]+ a[b]
+        s.insert(sum);          -> store every sum to set
+cout << s.size();               -> number of unique answer

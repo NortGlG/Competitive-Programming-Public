@@ -1,0 +1,37 @@
+https://gitlab.com/jittat/ku01-tasks/-/blob/main/tasks/2565/ku01-65-03-findtable.pdf
+
+Problem Type => Math
+
+Time Complexity : O(n^2) 
+
+(because the problem can be answer as real number you can use double to calculate)
+
+
+You if you can prove that the table will exist when 
+(sum of every sum of column == sum of every sum of row == sum of entire table)
+By using direct prove 
+|=========== Proving ============|
+Assume there is n * n table
+Sum of row 1 is a[1][1] + a[1][2] + a[1][3] + ... + a[1][n];
+Sum of row 1->n is a[1][1->n] + a[2][1->n] + ... + a[n][1->n];
+As you can see the sum of row 1-> n is sum of entire board
+Same as sum of column 1->n
+|================================|
+,       20             15              6
+
+10   10*20/41       10*15/41       10*6/41
+
+12   12*20/41       12*15/41       12*6/41
+
+19   19*20/41       19*15/41       19*6/41
+
+You can see the table are exist because 
+=> 10 * 20/41 + 10 * 15/41 + 10 * 6/41 
+=> 10 * (20+15+6)/41 
+=> 10*(41/41) = 10
+And
+=> 10 * 20/41 + 12 * 20/41 + 19 * 20/41
+=> (10 + 12 + 19) * 20/41
+=> 41 * 20 / 41 = 20
+so you can use this equation to solve the problem 
+=>  (sum of row[i])*(sum of column[j])/(sum of every sum of row or column)

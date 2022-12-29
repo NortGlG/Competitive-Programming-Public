@@ -1,0 +1,15 @@
+https://gitlab.com/jittat/ku01-tasks/-/blob/main/tasks/2565/ku01-65-02-cars.pdf
+
+Problem Type => DP
+
+Time Complexity : O(n)
+
+Loop i => 1 -> n :
+    cin >> p[i] >> v[i];         -> (p is already sort in desending so it fine to ignore p[i])
+cnt = 0 ;                        -> store Answer
+Loop i => n -> 1 :
+    if(v[i] < v[i+1]){           -> if more expensive but less quality 
+        v[i] = v[i+1];           -> store the best quality
+        cnt++;                   -> count the answer
+    }
+cout << cnt;                     -> number of cars that no one will buy

@@ -1,0 +1,23 @@
+https://gitlab.com/jittat/ku01-tasks/-/blob/main/tasks/2565/ku01-65-05-depth.pdf
+
+Problem Type => Data Sturcture, Binary Search, Constructive Algorithm
+
+Time Complexity : O(qlogn)
+
+The way to make this Problem solve fast enough is using Constructive Algorithm
+to Pre-Compute the Answer
+
+This Problem you need the precompute the most length that can go in that depth
+
+And the way to Pre-Compute is using Stack (btw you can still using array)
+
+Using stack to store the depth and the longth of the depth by store in pair
+
+every time you gonna add new stack if now depth is lesser than previous depth 
+you will add the previous depth longth and add now depth long and store in
+Maximum Array 
+
+Even though you still need to use O(nq) to find the answer to every query
+
+So You need to use Binary Search to find the answer in logarithmic time instead of linear time
+Because the Pre-Compute Array is Monotonic so the time Complexity is O(qlogn)

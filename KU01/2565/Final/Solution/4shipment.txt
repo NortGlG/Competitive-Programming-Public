@@ -1,0 +1,63 @@
+https://gitlab.com/jittat/ku01-tasks/-/blob/main/tasks/2565/ku01-65-04-shipment.pdf
+
+Problem Type => Greedy + Brute Force
+
+Time Complexity : O(k^2)
+
+You can see the problem ask the best way to go from upper to middle to lower node k time 
+with you can't travel with same edge
+all upper and lower node have edge to middle node
+
+Example Case:
+3 1         -> n, k
+3 5 10      -> weight from upper node to first middle node
+4 6 12      -> weight from upper node to second middle node
+2 1 8       -> weight from first middle node to lower node
+3 7 5       -> weight from second middle node to lower node
+
+We can re-arrange and sort the input to 
+3 1         -> n, k
+3 5 10      -> weight from upper node to first middle node (ascending)
+8 2 1       -> weight from first middle node to lower node (descending)
+4 6 12      -> weight from upper node to second middle node (ascending)
+7 5 3       -> weight from second middle node to lower node (descending)
+
+And Change the question to how pairing k pair(s) to make the maximum sum of pair is minimum
+
+3 5 10
+8 2 1
+
+4 6 12
+7 5 3
+
+but you still don't know how to choose so You gonna choose every way to go through the middle node
+if we choose to go to first middle node F time
+and we choose to go to second middle node S time
+
+the way to minimum the maximum sum of pair is Using Greedy Algorithm
+
+choose every F,S that F<=n && S<=n
+int mx = INT_MIN
+Loop i => 1 -> F:
+    mx = max(mx,uppertofirstmiddle[i] + firstmiddletolower[i+n-F])
+Loop i => 1 -> S:
+    mx = max(mx,uppertosecondmiddle[i] + secondmiddletolower[i+n-S])
+The equation above is best way to choose path to go to lower node
+Ex. You choose only 1 time The best way to pairing is to pair the least one to another least one
+    3 5 10
+|   ^
+    8 2 1
+|       ^
+    (3,1) -> 4
+    You choose 2 times The best way to pairing is to pair the least one to the 2nd least one
+    3 5 10
+|   ^ ^
+    8 2 1
+|     ^ ^
+    (3,2) , (5, 1) -> 6
+    You choose 3 times The best way to pairing the most one with the least one
+    3 5 10            
+|   ^ ^ ^
+    8 2 1
+|   ^ ^ ^
+    (3,8), (5,2), (10,1) -> 11
